@@ -7,9 +7,56 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/f17b0f7947.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
+    <header>
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        <%=link_to "HITOTABI", root_path, class:"navbar-brand" %>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><%=link_to "ホーム", root_path %></li>
+          <li><%=link_to "ログイン", new_user_session_path %></li>
+          <!-- <li class="active"><a href="about.html">About</a></li>
+          <li><a href="contact.html" class="smoothscroll">Contact</a></li> -->
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+  </div>
+
+    </header>
+
     <%= yield %>
+<footer>
+  <div id="social">
+    <div class="container">
+      <div class="row centered">
+        <div class="col-lg-2">
+          <a href="#"><i class="fa fa-facebook"></i></a>
+        </div>
+        <div class="col-lg-2">
+          <a href="#"><i class="fa fa-twitter"></i></a>
+        </div>
+        <div class="col-lg-2">
+          <a href="#"><i class="fa fa-instagram"></i></a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+      
+</footer>
   </body>
 </html>

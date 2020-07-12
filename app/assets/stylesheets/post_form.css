@@ -1,0 +1,26 @@
+#contactwrap {
+	background-image: url(KUMA1892090_TP_V4.jpg);
+	margin-top: -70px;
+	padding-top: 250px;
+	text-align:center;
+	background-attachment: relative;
+	background-position: center center;
+	min-height: 650px;
+	width: 100%;
+    background-size: 100%;
+    background-size: cover;
+}
+
+#contactwrap h1 {
+	color:#ffffff;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	letter-spacing: 4px;/*letter-spacingプロパティで文字の間隔を指定*/
+	font-size: 60px;
+	font-weight: bold;
+}
+
+#contactwrap h4 {
+	font-weight: 400;
+	color: #ffffff
+}

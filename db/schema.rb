@@ -10,11 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_04_065822) do
+ActiveRecord::Schema.define(version: 2020_07_12_075008) do
+
+  create_table "articles", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "title"
+    t.string "content"
+    t.integer "user_id"
+    t.string "country"
+    t.integer "status", default: 0, null: false
+  end
 
   create_table "blogs", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "tagmaps", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "article_id"
+    t.integer "tag_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "tag_name"
+  end
+
+  create_table "user_profiles", force: :cascade do |t|
+    t.integer "age"
+    t.string "job"
+    t.string "introduction"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_id"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -8,12 +8,17 @@
     </div>
     <!-- /container -->
   </div>
+  
+  <div class="profile-container">
+    <h3 class="profile-name"><%= @user.name %>さん</h3>
+      <span><%= link_to "プロフィール設定・変更",  edit_user_path(@user.id) %></span>
+            <%#= attachment_image_tag @user_profile, :image, :fill, 60, 60, class: "img-circle pull-left profile-img", fallback: "logo.png" %>
+  </div>
 <div class="container">
     <div class="row centered mt mb">
       <div class="col-lg-8 col-lg-offset-2">
       </div>
       <div class="col-lg-10 col-lg-offset-1 mt">
-      	投稿者<%= @user.name %>さん <span><%= link_to "プロフィール設定",  new_user_profile_path %></span>
         <table class="table table-bordered">
 	    <thead>
 		    <tr>
@@ -31,13 +36,13 @@
 			    <th><%= article.created_at.to_s(:datetime_jp) %></th>
 			    <td><%=link_to "#{article.title}", article_path(article.id) %></td>
 			    <td><%= article.updated_at.to_s(:datetime_jp) %></td>
-          <td></td>
+          <td><%= (article.status==false) ? "下書き" : "公開中" %></td>
 			        <!-- ログインしているユーザーと投稿したユーザーが一致 -->
 			        <% if user_signed_in? && current_user.id == article.user_id %>
                 <td><%= link_to "削除", article_path(article.id), method: :delete, data: {confirm:"本当に削除してもよろしいですか？"} %>
                     <%= link_to "編集", edit_article_path(article.id) %></td>
                     <% end %>
-          
+          <%#= if article.status? "ture" else "false" %>
 		    </tr>
 		    <% end %>
 		<%= paginate @articles %>

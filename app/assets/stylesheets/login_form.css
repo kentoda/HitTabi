@@ -15,3 +15,20 @@
 .actions {
 	color: black;
 }
+
+.form_label {
+	color: black;
+}
+
+.field {
+    color: white;
+}
+
+
+.form-title {
+	color: white;
+}
+
+#error_explanation {
+	color: #FF4500;
+}

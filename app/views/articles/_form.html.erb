@@ -1,9 +1,15 @@
 <%= form_for(@article) do |f| %>
 
-<div class="field">
+<div class="post-field">
     <%= f.label :"タイトル" %><br>
     <%= f.text_field :title, required: true %>
 </div>
+
+<div class="post-field">
+    <%= f.label :タグ %><br>
+    <%= f.text_field :tag_name, value: @tag_list %>
+</div>
+
 
 <!-- <div class="field"> -->
     <%#= f.label :"国名" %><!-- <br> -->
@@ -12,13 +18,13 @@
   
 
 
-<div class="field">
+<div class="post-field">
     <%= f.label :"本文" %><br>
     <%= f.text_area :content,'data-provider': :summernote %>
 </div>
 
-<div class="field">
-     <%= f.select :status, [["下書き", "1"],["公開", "0"]] %>
+<div class="post-field">
+     <%= f.select :status, [["下書き", false],["公開", true]] %>
 </div> 
 
 <div class="actions">

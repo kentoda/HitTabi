@@ -86,3 +86,6 @@ gem 'kaminari','~> 1.2.1'
 
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
+
+gem 'devise-i18n'
+gem 'devise-i18n-views'

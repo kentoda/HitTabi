@@ -1,15 +1,19 @@
 <div class="form">
-  <h2>ログイン</h2>
+  <h2 class="form-title">ログイン</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div id="error_explanation"><%- flash.each do |name, msg| -%>
+           <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+           <%- end -%>
+  </div>  
   <div class="field">
     <%= f.label :ニックネーム %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+    <%= f.text_field :name, autofocus: true, autocomplete: "name",class: :form_label %>
   </div>
 
   <div class="field">
     <%= f.label :パスワード %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.password_field :password, autocomplete: "current-password",class: :form_label %>
   </div>
 
   <% if devise_mapping.rememberable? %>
@@ -20,7 +24,7 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "ログインする" %>
+    <%= f.submit "ログイン",:class => "btn btn-primary" %>
   </div>
 <% end %>
 

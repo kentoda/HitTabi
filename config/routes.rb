@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :articles
 
-  resources :user_profiles, except: [:index,:destroy]
 
-  resources :users, only: [:show]
+
+  resources :users, only: [:show,:edit,:update,]
 end

@@ -8,17 +8,25 @@ before_action :set_article, only: [:show, :edit, :update, :destroy]
 
    def index
    #where(status: true)で公開中の記事のみとってくる
-   	@articles = Article.where(status: true).page(params[:page]).per(2)
+   	@articles = Article.where(status: true).page(params[:page]).per(4)
    end
+
+    def tag 
+      tags = Tag.all
+   #  # @user = current_user
+   #  # if params[:name].nil?
+   #    @tags = Tag.all
+   #  # else
+   #    @tag = Tag.find_by(tag_name: params[:name])
+   #    @article = tag.article.page(params[:page]).per(20)
+   #    @tags = Tag.all.to_a.group_by{ |tag| tag.article.count}
+   end
+  
 
    def create
    	@article = Article.new(article_params)
-    # # split(",")で区切りを付けて、blogとは別に保存
-    # tag_list = params[:article][:tag_name].split(",")
    	@article.user_id = current_user.id
   	if @article.save
-       # save_articlesメソッドを作って、タグを保存
-       # @article.save_articles(tag_list)
   	   redirect_to user_path(current_user.id)
   	else
   		render 'new'
@@ -30,12 +38,10 @@ before_action :set_article, only: [:show, :edit, :update, :destroy]
    end
 
    def edit
-    @tag_list = @article.tags.pluck(:tag_name).join(",")
    end
 
 
    def update
-    tag_list = params[:article][:tag_name].split(",")
    	if @article.update(article_params)
        @article.save_articles(tag_list)
   		 redirect_to articles_path
@@ -44,10 +50,12 @@ before_action :set_article, only: [:show, :edit, :update, :destroy]
   	end
    end
 
+
    def destroy
    	@article.destroy
   	redirect_to articles_path
    end
+
 private
     def article_params
       params.require(:article).permit(
@@ -55,6 +63,7 @@ private
         :content,
         :country,
         :status,
+        :hashbody,
         tags_attributes: [
           :id,
           :tag_name,

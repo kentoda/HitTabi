@@ -2,10 +2,10 @@
 <h2>プロフィール</h2>
 <%= form_for(@user, url: {controller:"users", action:"update"},method: :patch) do |f| %>
 
-
+<div class="profile_image">
   <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, class: "img-circle pull-left profile-thumb", fallback: "logo.png"%>
   <%= f.attachment_field :profile_image, placeholder: "プロフィール画像", class: "user-edit-form" %>
-
+</div>
 
 <div class="post-field">
     <%= f.label :"年齢" %><br>

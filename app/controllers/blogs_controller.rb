@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
   def index
-  	@articles = Article.page(params[:page]).per(2)
+  	@articles = Article.where(status: true).page(params[:page]).per(4)
   end
   
   def about

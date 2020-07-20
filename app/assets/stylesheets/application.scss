@@ -21,6 +21,13 @@
 @import "summernote-custom-theme.min";
 @import "font-awesome";
 
+@font-face {
+  font-family: "Shadows";
+  src: asset_url('ShadowsIntoLight-Regular.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
@@ -74,19 +81,39 @@ body {
 #social {
 	padding-top: 50px;
 	padding-bottom: 50px;
-	background-color: whitesmoke;
+	background-color: dimgray;
 	text-align: center;
 
 }
 
 #social i {
 	font-size: 40px;
-	color: #4a4a4a;
+	color: #F5F5F5;
 	padding-left: 8em;
 }
 
 #social i:hover {
 	color: #1abc9c
+}
+
+#g {
+  background: #f2f2f2;
+  padding-top: 35px;
+  padding-bottom: 35px;
+  text-align: center;
+}
+
+.team {
+  padding-top: 20px;
+}
+
+.team:hover {
+  background: white;
+}
+
+.team a {
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 

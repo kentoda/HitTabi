@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_14_071410) do
+ActiveRecord::Schema.define(version: 2020_07_19_160709) do
+
+  create_table "areas", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "ancestry"
+  end
 
   create_table "articles", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -20,9 +27,17 @@ ActiveRecord::Schema.define(version: 2020_07_14_071410) do
     t.integer "user_id"
     t.string "country"
     t.boolean "status", default: false
+    t.string "hashbody"
   end
 
   create_table "blogs", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "article_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

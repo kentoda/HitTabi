@@ -1,1 +1,15 @@
-<%= @article.content.html_safe %>
+
+<div class="row centered mt mb">
+      <div class="col-lg-8 col-lg-offset-2">
+      	<h2><%= @article.title %></h2>
+      </div>
+
+           <div class="col-lg-10 col-lg-offset-1 mt">
+                 <%= @article.content.html_safe %>
+                  <br>
+                 <%= render_with_tags(@article.hashbody) %>
+              <div id="likes_button_<%= @article.id %>">
+                 <%= render 'likes/like' %>
+              </div>  
+           </div>
+</div>

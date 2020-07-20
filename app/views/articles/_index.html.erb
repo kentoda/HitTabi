@@ -1,28 +1,29 @@
 
-<% @articles.each do |article| %>
-<%# article.tags.each do |tag| %>
-<div class="row">
-      <div class="col-lg-6 blog-bg">
-        <div class="col-lg-4 centered">
+  <div id="g">
+    <div class="container">
+      <div class="row">
+        <h3><i>Travelers Blog</i></h3>
+        <br>
+        <br>
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+         
           <br>
-          <p><!-- プロフィール写真挿入予定 --></p>
-          <h4><%= article.user.name %></h4>
-          <h5><%#= link_to tag.tag_name, articles_path %></h5>
+          <br>
         </div>
-        <div class="col-lg-8 blog-content">
-          <h2><%= article.title %></h2>
-          <!-- html_safeでhtml形式のcontent(本文)がちゃんと表示されるようにする -->
-          <p><%= article.content.html_safe %></p>
-          <p><%= link_to "Read More", article_path(article.id) %></p>
-          <br>
-      </div>
-</div>
-   
+        <div class="col-lg-2"></div>
+        <% @articles.each do |article| %>
 
-<%# end %>    
-<% end %>
-  
+        <div class="col-lg-3 team">
+          <img class="img-circle" src="img/team01.jpg" height="90" width="90">
+          <h4><%= article.user.name %></h4>
+          <h5><%= article.user.job %></h5>
+          <strong><%= article.title %></strong>
+          <p><%= render_with_tags(article.hashbody) %></p>
+        </div>
+        <% end %>
+        
+      </div>
     </div>
-    <br>
-    <br>
+
   </div>

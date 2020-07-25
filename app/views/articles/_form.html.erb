@@ -2,13 +2,8 @@
 
 <div class="post-field">
     <%= f.label :"タイトル" %><br>
-    <%= f.text_field :title, required: true %>
+    <%= f.text_field :title, required: true, size:"35px", class: "title",placeholder:"一覧にも表示されます 25文字以内で記入" %>
 </div>
-
-<!-- <div class="post-field">
-    <%#= f.label :タグ %><br>
-    <%#= f.text_field :tag_name, value: @tag_list %>
-</div> -->
 
 
 <!-- <div class="field"> -->
@@ -25,7 +20,7 @@
 
 <div class="post-field">
     <%= f.label :"タグ" %><br>
-     <%= f.text_field :hashbody, size:"55x3" %>
+     <%= f.text_field :hashbody, size:"55x3",placeholder:"#タグは4つまでつけられます #タグ一つの文字数は5文字以内" %>
 </div>
   
 

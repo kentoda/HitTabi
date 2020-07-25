@@ -11,15 +11,15 @@ before_action :set_article, only: [:show, :edit, :update, :destroy]
    	@articles = Article.where(status: true).page(params[:page]).per(4)
    end
 
-    def tag 
-      tags = Tag.all
-   #  # @user = current_user
-   #  # if params[:name].nil?
-   #    @tags = Tag.all
-   #  # else
-   #    @tag = Tag.find_by(tag_name: params[:name])
-   #    @article = tag.article.page(params[:page]).per(20)
-   #    @tags = Tag.all.to_a.group_by{ |tag| tag.article.count}
+   def tag
+    @user = current_user
+    @tags = Tag.all.to_a.group_by{ |tag| tag.articles.count}
+
+    if params[:name].present?
+      # binding.pry
+      @tag = Tag.find_by(tag_name: params[:name])
+      @articles = @tag.articles.page(params[:page]).per(20).reverse_order
+    end
    end
   
 
@@ -73,14 +73,8 @@ private
       )
     end
 
- # private
-
- #    def article_params
- #     params.require(:article).permit(:title, :content, :country, :status)
- #   end
-
-   def set_article
+    def set_article
        @article = Article.find(params[:id])
-   end
+    end
 
 end

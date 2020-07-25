@@ -6,3 +6,77 @@
 .tag {
 	margin-top: 50px;
 }
+
+
+.tag-index {
+	margin-top: 5%;
+}
+
+.edit-wrapper {
+	margin-top: 5%;
+}
+
+.writer_info_wrap {
+    margin: 0 auto;
+    padding: 80px 0;
+    width: 1020px;
+}
+
+.flex_list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.img_wrap {
+	margin-left: 30%;
+	margin-top: 10px;
+}
+
+.profile_wrap {
+    display: block;
+    margin-left: 5px;
+    text-align: center;
+}
+
+.description {
+	font-family: europa, YakuHanJP, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "小塚ゴシック Pro", "Kozuka Gothic Pro", "Noto Sans JP";
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.75;
+    color: #7e7e7e;
+}
+
+.btn-circle {
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.btn-circle i {
+  position: relative;
+  top: -1px;
+}
+
+.btn-circle-sm {
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  font-size: 0.9rem;
+}
+
+.btn-circle-lg {
+  width: 55px;
+  height: 55px;
+  line-height: 55px;
+  font-size: 1.1rem;
+}
+
+.btn-circle-xl {
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  font-size: 1.3rem;
+}

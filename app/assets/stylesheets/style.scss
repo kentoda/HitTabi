@@ -3,18 +3,18 @@
     color: #4a4a4a;
 }
 
-/*hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0;
-}*/
 
+.image1 {
+  background-image: image-url("KUMA1892090_TP_V4.jpg");
+}
+.image2 {
+  background-image: image-url("TSU413007_TP_V4.jpg");
+}
+.image3 {
+  background-image: image-url("TSU413002_TP_V4.jpg");
+}
 
 #headerwrap {
-	background-image: image-url("MIYA19224BDSC_8545_TP_V4.jpg");
   font-family: "Shadows";
 	margin-top: -70px;
 	padding-top: 250px;
@@ -24,8 +24,8 @@
 	min-height: 850px;
 	width: 100%;
 	background-color: rgba(0, 0, 0, 0.5);
-    background-size: 100%;
-    background-size: cover;
+  background-size: 100%;
+  background-size: cover;
 }
 
 #headerwrap h1 {
@@ -87,4 +87,12 @@
   text-align: center;
   background: #f2f2f2;
   
+}
+
+.fas fa-search {
+  background-color: black
+}
+
+.title-link {
+  color: black;
 }

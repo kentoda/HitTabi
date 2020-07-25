@@ -90,6 +90,8 @@ gem "refile-mini_magick"
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 
+gem 'simple_form'
+
 gem 'dotenv-rails'
 group :production do
 gem 'mysql2'

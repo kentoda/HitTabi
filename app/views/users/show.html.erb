@@ -6,8 +6,7 @@
         </div>
       </div>
     </div>
-    <!-- /container -->
-  </div>
+</div>
   
   <div class="profile-container">
     <h3 class="profile-name"><%= @user.name %>さん</h3>
@@ -25,6 +24,7 @@
 			    <th>作成日</th>
 			    <th>タイトル</th>
 			    <th>更新日</th>
+          <th>いいね数</th>
           <th>ステータス</th>
 			    <th></th>
 
@@ -36,6 +36,7 @@
 			    <th><%= article.created_at.to_s(:datetime_jp) %></th>
 			    <td><%=link_to "#{article.title}", article_path(article.id) %></td>
 			    <td><%= article.updated_at.to_s(:datetime_jp) %></td>
+          <td><%= article.likes.count %></td>
           <td><%= (article.status==false) ? "下書き" : "公開中" %></td>
 			        <!-- ログインしているユーザーと投稿したユーザーが一致 -->
 			        <% if user_signed_in? && current_user.id == article.user_id %>

@@ -1,5 +1,20 @@
 
-<div class="row centered mt mb">
+
+
+<div class="writer_info_wrap flex_list">
+
+      <div class="img_wrap"><%= attachment_image_tag @article.user, :profile_image, :fill, 90, 90, class: "img-circle pull-left profile-img", fallback: "logo.png" %>
+      </div>
+      <div class="profile_wrap">
+        <h4><p class="profile_title">WRITER’S PROFILE</p></h4>
+        <h3><p class="profile_name"><%= @article.user.name %></h3></p>
+        <span class="description"><%= @article.user.introduction %></span>
+      </div>
+</div>
+
+
+<div class="show-wrapper">
+  <div class="row centered mt mb">
       <div class="col-lg-8 col-lg-offset-2">
       	<h2><%= @article.title %></h2>
       </div>
@@ -8,8 +23,11 @@
                  <%= @article.content.html_safe %>
                   <br>
                  <%= render_with_tags(@article.hashbody) %>
-              <div id="likes_button_<%= @article.id %>">
-                 <%= render 'likes/like' %>
+              <div id="likes_button">
+                 <%= render 'likes/like', article: @article %>
               </div>  
            </div>
+  </div>
 </div>
+
+

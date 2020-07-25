@@ -4,72 +4,96 @@
     <title>HitTabi</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://kit.fontawesome.com/f17b0f7947.js" crossorigin="anonymous"></script>
-    <script src="./js/summernote/lang/summernote-ja-JP.js"></script>
   </head>
 
   <body>
-    <header>
-      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-      <div class="navbar-header">
-        <!--スマホサイズ時のハンバーガーメニューを表示-->
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <!--class="sr-only"音声ブラウザにメニューがあることを伝える。なくても問題なし-->
-            <span class="sr-only">Toggle navigation</span>
-            <!--ハンバーガーメニューの三本線を設定-->
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        <%=link_to "HITOTABI", root_path, class:"navbar-brand" %>
-      </div>
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <% if user_signed_in? %>
-          <li><%=link_to "ホーム", root_path %></li>
-          <li><%=link_to "About", blogs_about_path %></li>
-          <li><%=link_to "ログイン", new_user_session_path %></li>
-          <li><%=link_to "ブログ投稿", new_article_path %></li>
-          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-          <li><%=link_to "マイページ", user_path(current_user.id) %></li>
-          <% else %>
-          <li><%=link_to "ホーム", root_path %></li>
-          <li><%=link_to "About", blogs_about_path %></li>
-          <li><%=link_to "ログイン", new_user_session_path %></li>
-          <li><%=link_to "ブログ投稿", new_article_path %></li>
-          <li><%=link_to "新規登録", new_user_registration_path %></li>
-          <% end %>
-        </ul>
-      </div>
-      <!--/.nav-collapse -->
-    </div>
-  </div>
-     </header>
+      <header>
+          <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+              <div class="navbar-header">
+                       <!--スマホサイズ時のハンバーガーメニューを表示-->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="        .navbar-collapse">
+                       <!--class="sr-only"音声ブラウザにメニューがあることを伝える。なくても問題なし-->
+                  <span class="sr-only">Toggle navigation</span>
+                       <!--ハンバーガーメニューの三本線を設定-->
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <%=link_to "HITOTABI", root_path, class:"navbar-brand" %>
+              </div>
 
+              <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                  <% if user_signed_in? %>
+                    <li><%=link_to "home", root_path %></li>
+                    <li><%=link_to "about", blogs_about_path %></li>
+                    <li><%=link_to "post", new_article_path %></li>
+                    <li><%= link_to "logout", destroy_user_session_path,
+                            method: :delete %></li>
+                    <li><%=link_to user_path(current_user.id) do %>
+                      <i class="fas fa-user-alt"></i></li>
+                      <% end %>
+                    <li><button type="button"  class="btn-lg"  data-toggle="modal" data-target="#sampleModal" ><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button></li>
+                  <% else %>
+                    <li><%=link_to "ホーム", root_path %></li>
+                    <li><%=link_to "About", blogs_about_path %></li>
+                    <li><%=link_to "ログイン", new_user_session_path %></li>
+                    <li><%=link_to "ブログ投稿", new_article_path %></li>
+                    <li><%=link_to "新規登録", new_user_registration_path %></li>
+                    <li><%#= search_form_for @search, articles_path do |f| %>
+          <%#= f.text_field :title_cont, placeholder: '名前を入力...' %>
+          <%#= f.submit ("検索する") %></li>
+          <%# end %>
+                  <% end %>
+                </ul>
+              </div>
+   
+            </div>
+          </div>
+        </div>
+      </header>
+                        <!-- モーダル・ダイアログ -->
+            <div class="modal" id="sampleModal" tabindex="-1">
+              <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">
+                            <span>×</span></button>
+                            <%= search_form_for @search do |f| %>
+                            <%= f.text_field :title_cont, placeholder: 'キーワードで記事を検索', size: 80, class: "search" %>
+                            <%= f.submit %>
+                            <% end %>
+                          <%#= render 'articles/tag' %>
+                    </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                  </div>
+                </div>
+              </div>
+            </div>
     <%= yield %>
-<footer>
-  <div id="social">
-    <div class="container">
-      <div class="row centered">
-        <div class="col-lg-2">
-          <a href="#"><i class="fa fa-facebook"></i></a>
-        </div>
-        <div class="col-lg-2">
-          <a href="#"><i class="fa fa-twitter"></i></a>
-        </div>
-        <div class="col-lg-2">
-          <a href="#"><i class="fa fa-instagram"></i></a>
-        </div>
 
+    <footer>
+      <div id="social">
+        <div class="container">
+          <div class="row centered">
+            <div class="col-lg-2">
+              <a href="#"><i class="fa fa-facebook"></i></a>
+            </div>
+            <div class="col-lg-2">
+              <a href="#"><i class="fa fa-twitter"></i></a>
+            </div>
+            <div class="col-lg-2">
+              <a href="#"><i class="fa fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
+    </footer>
 
-      
-</footer>
   </body>
 </html>

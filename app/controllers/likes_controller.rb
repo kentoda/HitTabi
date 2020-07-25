@@ -9,7 +9,7 @@ class LikesController < ApplicationController
   def destroy
   	article = Article.find(params[:article_id])
     like = current_user.likes.find_by(article_id: article.id)
-    article.destroy
+    like.destroy
     redirect_to article_path(article)
   end
 end

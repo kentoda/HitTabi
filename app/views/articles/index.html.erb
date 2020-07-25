@@ -1,2 +1,9 @@
-<%= render 'index' %>
-<%= paginate @articles %>
+
+
+<% if @search_articles %>
+  <%= render 'search' %>
+  <div class="paginate"><%= paginate @articles %></div>
+<% else %>
+  <%= render 'index' %>
+  <div class="paginate"><%= paginate @articles %></div>
+<% end %>

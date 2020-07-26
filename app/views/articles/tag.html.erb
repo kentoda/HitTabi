@@ -3,12 +3,25 @@
   	   <div class="row">
           <% if params[:name] == nil %>
           <% else %>
-          <% @articles.each do |article| %>
-           <%= article.title %>
-           <% end %>
-
-            <%= render 'tag' %>
-          <% end %>
+            <% @articles.each do |article| %>
+              <div class="col-lg-3 team">
+                <%= attachment_image_tag article.user, :profile_image, :fill, 60, 60, class: "img-circle pull-left profile-img", fallback: "logo.png" %>
+                  <h4><%= article.user.name %></h4>
+                  <h5><%= article.user.job %></h5>
+                  <strong><%= truncate(article.title, length:8) do %>
+                            <%=link_to "#{article.title}", article_path(article.id) %></strong>
+                          <% end %>
+                  <p><%= render_with_tags(article.hashbody) %></p>
+              </div>
+            <% end %>
+             <div class="paginate"><%= paginate @articles %></div>
        </div>
     </div>
+    <hr>
+      <br>
+      <br>
 </div>
+
+
+            <%#= render 'tag' %>
+          <% end %>

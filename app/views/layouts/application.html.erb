@@ -32,22 +32,19 @@
                     <li><%=link_to "home", root_path %></li>
                     <li><%=link_to "about", blogs_about_path %></li>
                     <li><%=link_to "post", new_article_path %></li>
-                    <li><%= link_to "logout", destroy_user_session_path,
-                            method: :delete %></li>
                     <li><%=link_to user_path(current_user.id) do %>
                       <i class="fas fa-user-alt"></i></li>
                       <% end %>
-                    <li><button type="button"  class="btn-lg"  data-toggle="modal" data-target="#sampleModal" ><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button></li>
+                    <li><button type="button"  class="btn-lg"  data-toggle="modal" data-target="#sampleModal" ><span class="glyphicon glyphicon-search fa-lg" aria-hidden="true"></span></button></li>
+                    <li class="logout"><%= link_to destroy_user_session_path,
+                            method: :delete do %>
+                              <i class="fas fa-door-open"></i></li>
+                    <% end %>
                   <% else %>
-                    <li><%=link_to "ホーム", root_path %></li>
-                    <li><%=link_to "About", blogs_about_path %></li>
-                    <li><%=link_to "ログイン", new_user_session_path %></li>
-                    <li><%=link_to "ブログ投稿", new_article_path %></li>
-                    <li><%=link_to "新規登録", new_user_registration_path %></li>
-                    <li><%#= search_form_for @search, articles_path do |f| %>
-          <%#= f.text_field :title_cont, placeholder: '名前を入力...' %>
-          <%#= f.submit ("検索する") %></li>
-          <%# end %>
+                    <li><%=link_to "home", root_path %></li>
+                    <li><%=link_to "about", blogs_about_path %></li>
+                    <li><%=link_to "login", new_user_session_path %></li>
+                    <li><button type="button"  class="btn-lg"  data-toggle="modal" data-target="#sampleModal" ><span class="glyphicon glyphicon-search fa-lg" aria-hidden="true"></span></button></li>
                   <% end %>
                 </ul>
               </div>
@@ -58,19 +55,20 @@
       </header>
                         <!-- モーダル・ダイアログ -->
             <div class="modal" id="sampleModal" tabindex="-1">
-              <div class="modal-dialog modal-lg">
+              <div class="modal-dialog modal-dialog-fluid  modal-lg">
                   <div class="modal-content">
                     <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal">
                             <span>×</span></button>
                             <%= search_form_for @search do |f| %>
-                            <%= f.text_field :title_cont, placeholder: 'キーワードで記事を検索', size: 80, class: "search" %>
-                            <%= f.submit %>
+                               <%= f.text_field :title_cont, placeholder: 'キーワードで記事を検索', size: 80, class: "search" %>
+                               <%= f.submit %>
+                                  <!-- <i class="fas fa-search"></i> -->
                             <% end %>
-                          <%#= render 'articles/tag' %>
+                          <%= render 'articles/tag' %>
                     </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                          <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
                   </div>
                 </div>
               </div>

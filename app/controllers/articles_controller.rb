@@ -18,7 +18,7 @@ before_action :set_article, only: [:show, :edit, :update, :destroy]
     if params[:name].present?
       # binding.pry
       @tag = Tag.find_by(tag_name: params[:name])
-      @articles = @tag.articles.page(params[:page]).per(20).reverse_order
+      @articles = @tag.articles.page(params[:page]).per(4)
     end
    end
   

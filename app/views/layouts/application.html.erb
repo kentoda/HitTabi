@@ -63,9 +63,10 @@
                             <%= search_form_for @search do |f| %>
                                <%= f.text_field :title_cont, placeholder: 'キーワードで記事を検索', size: 80, class: "search" %>
                                <%= f.submit %>
-                                  <!-- <i class="fas fa-search"></i> -->
                             <% end %>
-                          <%= render 'articles/tag' %>
+                           <!--  タグ一覧表示 -->
+                           
+                          <%= render 'articles/tag', tags: @tags %>
                     </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">close</button>

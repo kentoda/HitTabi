@@ -114,7 +114,16 @@ footer {
 	color: #1abc9c
 }
 
-#g {
+#h {
+  margin-top: 10%;
+  background: #f2f2f2;
+  padding-top: 35px;
+  padding-bottom: 35px;
+  text-align: center;
+}
+
+
+.g {
   background: #f2f2f2;
   padding-top: 35px;
   padding-bottom: 35px;
@@ -124,7 +133,7 @@ footer {
   transition : all 1s;
 }
 
-#g.active{
+.g.active{
   opacity : 1;
   transform : translate(0, 0);
 }
@@ -179,5 +188,5 @@ button {
 
 .title-font {
     font-family: "Raleway-Black";
-  
+    color: white;
 }

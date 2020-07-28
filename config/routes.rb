@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   	resource :likes, only: [:create, :destroy]
   end
 
-
+  resources :areas
 
   resources :users, only: [:show,:edit,:update,]
 end

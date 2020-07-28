@@ -1,10 +1,8 @@
 
-     <div class="container">
-	    <div class= "col-xs-12 col-lg-12 col-md-12 col-sm-12">
+       <div class="container">
+        <div class= "col-xs-12 col-lg-12 col-md-12 col-sm-12">
             <div class= "hash-tag">
-            	<% tags=Tag.all.to_a.group_by{ |tag| tag.articles.count} %>
                 <% tags.sort.reverse.each do |count| %>
-                    <%# binding.pry %>
                     <% count[1].each do |tag| %>
                         <p><%= link_to  "##{tag.tag_name} (#{tag.articles.count}) 件","/article/tag/#{tag.tag_name}",data: {"turbolinks" => false} %></p>
                     <% end %>
@@ -12,5 +10,3 @@
             </div>
         </div>
     </div>
-
-    

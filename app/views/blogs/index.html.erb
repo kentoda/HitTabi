@@ -1,13 +1,11 @@
 <div id="headerwrap">
-    <!-- <div class="container"> -->
+
           <div class="image1"></div>
           <div class="image2"></div>
           <div class="image3"></div>
           <div class="image4"></div>
           <div class="image5"></div>
-     <!--      <h3>Life is a journey</h3>
-          <h3>It’s about the journey, not the destination</h3></span> -->
-    <!-- </div> -->
+          <div class="image6"></div>
 </div>
 
 
@@ -21,10 +19,64 @@
       <br>
    </div>
 </div>   
-        <%= render 'articles/index' %>
+  <div class="g">
+    <div class="container">
+      <div class="row">
+        <h3><i>Travelers Blog</i></h3>
+        <br>
+        <br>
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+         
+          <br>
+          <br>
+        </div>
+        <div class="col-lg-2"></div>
+        <% @articles.each do |article| %>
+
+        <div class="col-lg-3 team">
+          <%= attachment_image_tag article.user, :profile_image, :fill, 60, 60, class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
+          <h4><%= article.user.name %></h4>
+          <h5><%= article.user.job %></h5>
+          <strong><%=link_to "#{article.title}", article_path(article.id) %></strong>
+                
+          <p><%= render_with_tags(article.hashbody) %></p>
+
+        </div>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
 
 
   <h2 class="centered"><%= link_to "Read More..", articles_path %></h2>
 
-
+<!-- application.jsに記述をしてしまうと他のjsとぶつかり表示されなくなってしまうためここに記述 -->
+<script>
+  $(function () {
+  $("#headerwrap").skippr({
+    // スライドショーの変化 ("fade" or "slide")
+    transition : 'fade',
+    // 変化に係る時間(ミリ秒)
+    speed : 1000,
+    // easingの種類
+    easing : 'easeOutQuart',
+    // ナビゲーションの形("block" or "bubble")
+    navType : 'false',
+    // 子要素の種類("div" or "img")
+    childrenElementType : 'div',
+    // ナビゲーション矢印の表示(trueで表示)
+    arrows : true,
+    // スライドショーの自動再生(falseで自動再生なし)
+    autoPlay : true,
+    // 自動再生時のスライド切替間隔(ミリ秒)
+    autoPlayDuration : 3000,
+    // キーボードの矢印キーによるスライド送りの設定(trueで有効)
+    keyboardOnAlways : true,
+    // 一枚目のスライド表示時に戻る矢印を表示するかどうか(falseで非表示)
+    hidePrevious : false
+  });
+});
+</script>
 

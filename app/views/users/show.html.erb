@@ -11,7 +11,7 @@
   <div class="profile-container">
     <h3 class="profile-name"><%= @user.name %>さん</h3>
       <span><%= link_to "プロフィール設定・変更",  edit_user_path(@user.id) %></span>
-            <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, class: "img-circle pull-left profile-img", fallback: "logo.png" %>
+            <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
   </div>
 <div class="container">
     <div class="row centered mt mb">

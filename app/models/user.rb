@@ -9,5 +9,6 @@ class User < ApplicationRecord
          has_many :likes, dependent: :destroy
 
          validates :name, presence: true, uniqueness: true
+         # validates :introduction, length: { in: 1..30 }
 
 end

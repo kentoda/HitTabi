@@ -20,7 +20,7 @@
       </div>
 
            <div class="col-lg-10 col-lg-offset-1 mt">
-                 <%= @article.content.html_safe %>
+                 <%= @article.content.try(:html_safe) %>
                   <br>
                  <%= render_with_tags(@article.hashbody) %>
               <div id="likes_button">

@@ -5,7 +5,7 @@ before_action :set_tag
 
  def set_search
   @search = Article.ransack(params[:q])
-  @search_articles = @search.result.page(params[:page]).per(4)
+  @search_articles = @search.result.page(params[:page]).per(4).where(status: true)
  end
  
  def set_tag

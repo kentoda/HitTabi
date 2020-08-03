@@ -64,6 +64,7 @@
                                <%= f.text_field :title_cont, placeholder: 'キーワードで記事を検索', size: 80, class: "search" %>
                                <%= f.submit %>
                             <% end %>
+                            <div class="area-saerch"></div>
                            <!--  タグ一覧表示 -->
                            
                           <%= render 'articles/tag', tags: @tags %>

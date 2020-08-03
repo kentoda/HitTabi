@@ -1,11 +1,13 @@
 
-現在準備中
- <%# @parents.each do |parent| %>
-  <!-- <p><%#= parent.name %></p>
-  <%# parent.children.each do |child| %>
-      <p><%#= child.name %></p>
-    <%# child.children.each do |grandchild| %>
-      <p><%#= grandchild.name %></p> -->
-      <%# end %>
-      <%#end %>
-      <%# end %>
+<% @parents.each do |parent| %>
+		<h2><%= parent.name %></h2>
+	<% parent.children.each do |child| %>
+			<h4><%= child.name %></h4>
+		<% child.children.each do |grandchild|%>
+				<p><%= grandchild.name %></p>
+		<% end %>
+	<% end %>
+<% end %>
+
+
+

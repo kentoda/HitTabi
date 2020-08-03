@@ -6,6 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 azia = Area.create(name: "アジア")
+europe = Area.create(name: "ヨーロッパ")
+northamerica = Area.create(name: "北米")
+southamerika = Area.create(name: "中南米")
+oceania = Area.create(name: "オセアニア")
+
+
+
 
 azia_korea = azia.children.create(name: "韓国")
 azia_tai = azia.children.create(name: "タイ")
@@ -21,7 +28,7 @@ azia_toruko.children.create([{name: "カッパドキア"}, {name: "イスタン�
 azia_maresia.children.create([{name: "クアラルンプール"}, {name: "ボルネオ島"}])
 azia_india.children.create([{name: "デリー"}, {name: "アグラ"}, {name: "バラナシ"}])
 
-europe = Area.create(name: "ヨーロッパ")
+# europe = Area.create(name: "ヨーロッパ")
 
 europe_italy = europe.children.create(name: "イタリア")
 europe_england = europe.children.create(name: "イギリス")
@@ -36,7 +43,7 @@ europe_netherlands.children.create([{name: "アムステルダム"}])
 europe_belgium.children.create([{name: "ブリュッセル"}, {name: "ブルージュ"}, {name: "トレド"}, {name: "ゲント"}, {name: "トンゲレン"}])
 
 
-northamerica = Area.create(name: "北米")
+# northamerica = Area.create(name: "北米")
 
 northamerica_hawaii = northamerica.children.create(name: "ハワイ")
 northamerica_amerika = northamerica.children.create(name: "アメリカ")
@@ -47,7 +54,7 @@ northamerica_amerika.children.create([{name: "ロサンゼルス"}, {name: "サ�
 northamerica_kanada.children.create([{name: "ケベックシティ"}, {name: "バンクーバー"}, {name: "トロント"}])
 
 
-southamerika = Area.create(name: "中南米")
+# southamerika = Area.create(name: "中南米")
 
 southamerika_boribia = southamerika.children.create(name: "ボリビア")
 southamerika_peru = southamerika.children.create(name: "ペルー")
@@ -56,7 +63,7 @@ southamerika_brazil = southamerika.children.create(name: "ブラジル")
 southamerika_brazil.children.create([{name: "リオデジャネイロ"}])
 
 
-oceania = Area.create(name: "オセアニア")
+# oceania = Area.create(name: "オセアニア")
 
 oceania_australia = oceania.children.create(name: "オーストラリア")
 oceania_newzealand = oceania.children.create(name: "ニュージーランド")

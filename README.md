@@ -22,7 +22,23 @@ Hit Tabi
 ### 主な利用シーン
 素敵な絶景を閲覧しつつ、投稿された記事があればもっと深く現地のことが知ることができます。
 
-## 設計書
+### 開発環境
+- OS Linux(Ubuntu)
+
+- 言語
+HTML,CSS,JavaScript,Ruby,SQL
+
+- フレームワーク
+Ruby on Rails
+Bootstrap
+
+- JSライブラリ
+jQuery
+
+- インフラ
+AWS(EC2,RDS,EIP)
+
+
 
 ### 機能一覧
 

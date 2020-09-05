@@ -17,7 +17,7 @@ before_action :set_article, only: [:show, :edit, :update, :destroy]
 
     if params[:name].present?
       @tag = Tag.find_by(tag_name: params[:name])
-      @articles = @tag.articles.page(params[:page]).per(4)
+      @articles = @tag.articles.where(status: true).page(params[:page]).per(4)
     end
    end
   

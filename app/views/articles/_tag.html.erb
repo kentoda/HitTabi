@@ -4,7 +4,7 @@
             <div class= "hash-tag">
                 <% tags.sort.reverse.each do |count| %>
                     <% count[1].each do |tag| %>
-                        <p><%= link_to  "##{tag.tag_name} (#{tag.articles.count}) 件","/article/tag/#{tag.tag_name}",data: {"turbolinks" => false} %></p>
+                        <p><%= link_to  "##{tag.tag_name} (#{tag.articles.where(status: true).count}) 件","/article/tag/#{tag.tag_name}",data: {"turbolinks" => false} %></p>
                     <% end %>
                 <% end %>
             </div>

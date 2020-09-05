@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController 
-before_action :authenticate_user!, {only: [:new]}
+before_action :authenticate_user!, {only: [:new, :show]}
 before_action :set_article, only: [:show, :edit, :update, :destroy]
 
    def new
@@ -7,7 +7,7 @@ before_action :set_article, only: [:show, :edit, :update, :destroy]
    end
 
    def index
-   #where(status: true)で公開中の記事のみとってくる
+   #whereメソッド+(status: true)で公開中の記事のみとってくる
    	@articles = Article.where(status: true).page(params[:page]).per(4)
    end
 
@@ -16,7 +16,6 @@ before_action :set_article, only: [:show, :edit, :update, :destroy]
     @tags = Tag.all.to_a.group_by{ |tag| tag.articles.count}
 
     if params[:name].present?
-      # binding.pry
       @tag = Tag.find_by(tag_name: params[:name])
       @articles = @tag.articles.page(params[:page]).per(4)
     end
@@ -43,7 +42,6 @@ before_action :set_article, only: [:show, :edit, :update, :destroy]
 
    def update
    	if @article.update(article_params)
-       @article.save_articles(tag_list)
   		 redirect_to articles_path
   	else
   		 render "edit"

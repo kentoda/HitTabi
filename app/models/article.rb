@@ -7,24 +7,12 @@ class Article < ApplicationRecord
 
   validates :status, inclusion: { in: [true, false] }
   validates :title, length: { in: 1..25 }
-  # validates :content, length: { in: 1..1500 }
+
 
   def liked_by?(user)
     likes.where(user_id: user.id).exists?
   end
 
-  # scope :with_keywords, -> keywords {
-  #   if keywords.present?
-  #     columns = [:title, :content]
-  #     where(keywords.split(/[[:space:]]/).reject(&:empty?).map {|keyword|
-
-  #       columns.map { |a| 
-  #         logger.debug(arel_table[a])
-  #         arel_table[a].matches("%#{keyword}%") }.inject(:or)
-
-  #     }.inject(:and))
-  #   end
-  # }
 
 # タグコールバック
 after_create do

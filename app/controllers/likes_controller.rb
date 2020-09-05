@@ -1,4 +1,6 @@
 class LikesController < ApplicationController
+
+
   def create
   	article = Article.find(params[:article_id])
     like = current_user.likes.new(article_id: article.id)

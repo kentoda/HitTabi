@@ -6,7 +6,7 @@ class Article < ApplicationRecord
 	belongs_to :user
 
   validates :status, inclusion: { in: [true, false] }
-  validates :title, length: { in: 1..25 }
+  validates :title, presence: true, length: { in: 5..25 }
 
 
   def liked_by?(user)

@@ -1,8 +1,18 @@
 <%= form_for(@article) do |f| %>
 
+<% if @article.errors.any? %>
+  <div class="alert alert-warning">
+    <ul>
+      <% @article.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <div class="post-field">
     <%= f.label :"タイトル" %><br>
-    <%= f.text_field :title, required: true, size:"35px", class: "title",placeholder:"一覧(見出し)にも表示されます 25文字以内で記入" %>
+    <%= f.text_field :title, required: true, size:"35px", class: "title",placeholder:"5文字以上25文字以内" %>
 </div>
 
 

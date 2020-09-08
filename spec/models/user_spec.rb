@@ -7,12 +7,12 @@ RSpec.describe User, type: :model do
       expect(@user.errors[:name]).to include(I18n.t("errors.messages.blank"))
     end
 
-    it "ニックネームが重複している場合、登録ができない" do
+    it "nameが重複している場合,登録ができない" do
    	  User.create(
      	name: "Test"
   	  )
 
-  	@user = User.new( 
+  	 @user = User.new( 
     	name: "Test"
   	  ) 
   	@user.valid?

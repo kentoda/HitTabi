@@ -20,7 +20,6 @@ after_create do
     # hashbodyに打ち込まれたハッシュタグを検出
     tags = hashbody.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
     tags.uniq.map do |tag| 
-      p tag
       # ハッシュタグは先頭の#を外した上で保存
       tag = Tag.find_or_create_by(tag_name: tag.downcase.delete('#'))
       article.tags << tag

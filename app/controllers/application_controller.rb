@@ -10,6 +10,7 @@ before_action :set_tag
  
  def set_tag
  	@tags = Tag.all.to_a.group_by{ |tag| tag.articles.count}
+ 	# n + 1 問題。理解していないため保留
   # @tags = Tagmap.joins(:article).joins(:tag).select("articles.*, tags.*, count(`tags`.`id`) as count").group(:tag_id).order("count(tag_id) desc")
  end
 
